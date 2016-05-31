@@ -1,0 +1,15 @@
+# Site settings
+title: Rapid Programmer - Get Tasks Done
+description: >
+  Tech blog by Jarno Tuovinen
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://rapidprogrammer.com"
+snapchat_username: mrtuovinen
+twitter_username: mrtuovinen
+linkedin_username: jarnotuovinen
+github_username:  spedepekka
+
+# Build settings
+markdown: redcarpet
+redcarpet:
+ extensions: ["fenced_code_blocks", "tables", "no_intra_emphasis", "strikethrough", "underline", "highlight", "autolink"]
