@@ -1,0 +1,17 @@
+---
+layout: post
+title: "Debug SSH"
+date: "2016-05-31 12:43:41 +0300"
+permalink: /:title
+---
+
+## Enable DEBUG3 to SSH
+
+Put this to your `~/.ssh/config` to set DEBUG3 (`-vvv`) to all SSH connections
+
+```
+Host *
+  LogLevel DEBUG3
+```
+
+Of course this can be given to any host to debug particular host instead of every connection.
