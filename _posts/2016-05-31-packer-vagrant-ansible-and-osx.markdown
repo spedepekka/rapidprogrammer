@@ -72,3 +72,48 @@ Here is my provider json in the template
     }
 ```
 
+### Network drops for big downloads
+
+I provision Packer with Ansible and I download big files like XCode from S3.
+The download freezes in few moments with `read timeout` error.
+
+I began to debug the issue by shooting up the box with packer
+and adding a script which waits for `/tmp/continue.txt` file. I don't know
+other way to leave the box running.
+
+This is my `wait-for-file.sh` and I added it to my `template.json` with
+other bash provision scripts.
+
+```bash
+#!/bin/bash
+
+WAIT_FILE="/tmp/continue.txt"
+
+while [ ! -f ${WAIT_FILE} ]
+do
+    sleep 2
+    done
+rm "${WAIT_FILE}"
+```
+
+Then I connected to the machine with SSH. I tried to download big file
+with `curl -O <BIG_FILE>`. This freezes as well. Looks like it is a network
+issue. The problem might be in VMWare Fusion NAT system.
+
+I added another interface to the box with this snippet in my template.
+
+```json
+"ethernet0.present": "TRUE",
+"ethernet0.connectionType": "nat",
+"ethernet1.present": "true",
+"ethernet1.startConnected": "true",
+"ethernet1.virtualDev": "e1000",
+"ethernet1.connectionType": "bridged"
+```
+
+Now `curl` still fails, because it uses `en0` by default which is the NAT
+interface. Let's use `en1` with `curl`
+
+```
+curl --interface en1 -O <BIG_FILE>
+```
