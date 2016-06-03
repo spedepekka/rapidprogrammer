@@ -117,3 +117,59 @@ interface. Let's use `en1` with `curl`
 ```
 curl --interface en1 -O <BIG_FILE>
 ```
+
+### *shrink.sh* times out
+
+The output looks like this
+
+```
+2016/06/03 13:14:32 [INFO] RPC client: Communicator ended with: 0
+2016/06/03 13:14:32 [INFO] RPC endpoint: Communicator ended with: 0
+2016/06/03 13:14:32 packer: 2016/06/03 13:14:32 [INFO] RPC client: Communicator ended with: 0
+2016/06/03 13:14:32 packer: 2016/06/03 13:14:32 opening new ssh session
+2016/06/03 13:14:32 packer: 2016/06/03 13:14:32 starting remote command: chmod +x /tmp/script_8825.sh; sudo PACKER_BUILD_NAME='vmware-iso' PACKER_BUILDER_TYPE='vmware-iso' /tmp/script_8825.sh
+2016/06/03 13:14:33 ui:     vmware-iso: Please disregard any warnings about disk space for the duration of shrink process.
+    vmware-iso: Please disregard any warnings about disk space for the duration of shrink process.
+    vmware-iso: Progress: 100 [===========>]
+    vmware-iso:
+2016/06/03 13:15:02 ui:     vmware-iso: Progress: 100 [===========>]
+2016/06/03 13:15:02 ui:     vmware-iso:
+2016/06/03 13:15:48 packer: 2016/06/03 13:15:48 remote command exited with '0': chmod +x /tmp/script_8825.sh; sudo PACKER_BUILD_NAME='vmware-iso' PACKER_BUILDER_TYPE='vmware-iso' /tmp/script_8825.sh
+2016/06/03 13:15:48 packer: 2016/06/03 13:15:48 [INFO] RPC endpoint: Communicator ended with: 0
+2016/06/03 13:15:48 [INFO] 173372 bytes written for 'stdout'
+2016/06/03 13:15:48 [INFO] 1 bytes written for 'stderr'
+2016/06/03 13:15:48 [INFO] RPC client: Communicator ended with: 0
+2016/06/03 13:15:48 [INFO] RPC endpoint: Communicator ended with: 0
+2016/06/03 13:15:48 packer: 2016/06/03 13:15:48 [INFO] 173372 bytes written for 'stdout'
+2016/06/03 13:15:48 packer: 2016/06/03 13:15:48 [INFO] RPC client: Communicator ended with: 0
+2016/06/03 13:15:48 packer: 2016/06/03 13:15:48 [INFO] 1 bytes written for 'stderr'
+2016/06/03 13:15:48 packer: 2016/06/03 13:15:48 opening new ssh session
+2016/06/03 13:15:48 packer: 2016/06/03 13:15:48 ssh session open error: 'read tcp 192.168.56.1:59263->192.168.56.138:22: read: operation timed out', attempting reconnect
+2016/06/03 13:15:48 packer: 2016/06/03 13:15:48 reconnecting to TCP connection for SSH
+2016/06/03 13:16:03 packer: 2016/06/03 13:16:03 reconnection error: dial tcp 192.168.56.138:22: i/o timeout
+2016/06/03 13:16:04 packer: 2016/06/03 13:16:04 Retryable error: Error removing temporary script at /tmp/script_8825.sh: dial tcp 192.168.56.138:22: i/o timeout
+```
+
+I've installed XCode to the box with Ansible provisioner. The shrink operation
+seems to take too long. I can see the animated VMWare icon doing something
+in the Dock. I took a look at timestamps and it seems to wait around 5 minutes.
+`start_retry_timeout` is 5 minutes by default. First I removed the XCode.dmg
+from the box after the installation and then I increased this timeout to
+10 minutes.
+
+```json
+    {
+      "execute_command": "chmod +x {{ .Path }}; sudo {{ .Vars }} {{ .Path }}",
+      "scripts": [
+        "../scripts/shrink.sh"
+      ],
+      "environment_vars": [
+      ],
+      "start_retry_timeout": "10m",
+      "type": "shell"
+    }
+```
+
+See the [Packer sources][packer-retry].
+
+[packer-retry]: https://github.com/mitchellh/packer/blob/master/provisioner/shell/provisioner.go#L334-356
