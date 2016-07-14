@@ -1,8 +1,7 @@
-# Site settings
 title: Rapid Programmer - Get Tasks Done
 description: >
   Tech blog by Jarno Tuovinen
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: ""
 url: "http://rapidprogrammer.com"
 snapchat_username: mrtuovinen
 twitter_username: mrtuovinen
