@@ -157,6 +157,7 @@ in the Dock. I took a look at timestamps and it seems to wait around 5 minutes.
 from the box after the installation and then I increased this timeout to
 10 minutes.
 
+{% raw %}
 ```json
     {
       "execute_command": "chmod +x {{ .Path }}; sudo {{ .Vars }} {{ .Path }}",
@@ -169,6 +170,7 @@ from the box after the installation and then I increased this timeout to
       "type": "shell"
     }
 ```
+{% endraw %}
 
 See the [Packer sources][packer-retry].
 
