@@ -108,6 +108,16 @@ The first parameter is the interface class with the context and the latter is th
 
 In Javascript there is a global object called `Android`. The object name comes from the `addJavascriptInterface` method. That object has all the methods annotated in the interface class, in this example `showToast(String toast)`. The if statement is there to check if the object is set. With this if statement the site can be used from other browsers as well where the Android interface doesn't exist.
 
+## Update the URL to your server
+
+Update your IP address to webview, for example
+
+```java
+myWebView.loadUrl("http://10.113.24.171:8080");
+```
+
+Complete [source code in Github][github].
+
 
 [github]: https://github.com/spedepekka/jsjava
 [google-doc]: https://developer.android.com/guide/webapps/webview.html
