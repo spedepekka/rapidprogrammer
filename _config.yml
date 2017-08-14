@@ -3,10 +3,13 @@ description: >
   Tech blog by Jarno Tuovinen
 baseurl: ""
 url: "http://rapidprogrammer.com"
+
+markdown: kramdown
+gems:
+  - jekyll-sitemap
+
 snapchat_username: mrtuovinen
 twitter_username: mrtuovinen
 linkedin_username: jarnotuovinen
 github_username: spedepekka
 youtube_username: spedepekka
-
-markdown: kramdown
