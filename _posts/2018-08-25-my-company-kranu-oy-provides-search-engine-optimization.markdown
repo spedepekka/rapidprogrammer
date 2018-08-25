@@ -15,8 +15,8 @@ One of our specialities is [GMB-listing optimization](https://www.itewiki.fi/tar
 
 Company contact information
 
-Isokatu 56
-90100 Oulu
+Isokatu 56  
+90100 Oulu  
 045 1241213
 
 VAT number: 2934045-5
