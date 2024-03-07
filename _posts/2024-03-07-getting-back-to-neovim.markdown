@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Getting back to NeoVim"
-date: "2024-03-07 16:40:00 +0300"
+date: "2024-03-07 08:40:00 +0300"
 permalink: /:title
 ---
 
