@@ -63,6 +63,7 @@ Couple of notes I want to write here for similar people to me:
 * To trace something between multiple places or services one needs something to trace
 * That something is just something unique like UUID...who would have thought :D
 * That something is called sometimes correlation ID
+* There is a nice Medium post about [correlation ID](https://medium.com/@anil.goyal0057/understanding-and-implementing-correlation-id-in-microservices-2900518954a0)
 * To get that UUID across services it must be attached to system and whatever call go between the services
 * Correlation ID is usually transferred from place A to place B via HTTP headers with something like X-Correlation-ID
 * If some sort of queue mechanism is used, then the correlation ID must be in the meta data
