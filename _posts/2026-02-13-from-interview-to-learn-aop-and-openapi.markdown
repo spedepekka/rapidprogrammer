@@ -7,15 +7,13 @@ permalink: /:title
 
 ## Preface
 
-The idea behind this post is to demonstrate how I learn and why one shouldn't make too hasty decisions what can and cannot do. I have a lot of confidence on my own skills to learn, but it works sometimes in a bit weird way. There is quite a lot of humor in this post, at least I laugh at myself and many times to what I'm learning. The humor makes learning easier and more memorable. Also it is possible to see that I don't really like to read the docs and I get sometimes a bit frustrated to just trying to undestand plain text. I learn by doing and eventually the acronyms and ideas behind the tech thing I'm learning about will click.
-
-And there is no salt in this post at all.
+The idea behind this post is to demonstrate how I learn, who I am and how I operate. I have a lot of confidence on my own skills to learn, but it works sometimes in a bit weird way. There is quite a lot of humor in this post, at least I laugh at myself and many times to what I'm learning. The humor makes learning easier and more memorable. Also it is possible to see that I don't really like to read the docs and I get sometimes a bit frustrated to just trying to undestand plain text. I learn by doing. Rventually the acronyms and ideas behind the tech thing I'm learning about will click.
 
 ## Why I wanted to learn AOP
 
-I'm a consultant and I was in an interview with a potential fintech client. They asked me about AOP and how have I've used it in the past and what do I know about it. I didn't really know what AOP is and how to use it. Many times I've used something without really knowing the real terms or deeper ideas, but it later turned out that I didn't know anything about AOP and I had not used it anywhere. Not knowing in interviews hits me hard. I know that nobody knows everything, but in this context not knowing might eventually give me a lot of headache in the form of not employing myself. In retrospective, I figured out that AOP is something important in this position, because there were not many technical questions and the questions were broader than just some random technical details. This also puts more weight to know this kind of acronym later, if asked. You shouldn't make the same mistake twice.
+I'm a consultant and I was in an interview with a potential fintech client. They asked me about AOP, how have I've used it in the past and what do I know about it. I didn't really know what AOP is and how to use it. Many times I've used something without really knowing the real terms or deeper ideas, but it later turned out that I didn't know anything about AOP and I had not used it anywhere. Not knowing in interviews hits me hard. I know that nobody knows everything, but in this context not knowing might eventually give me a lot of headache in the form of not employing myself. In retrospective, I figured out that AOP is something important in this position, because there were not many technical questions and the questions were broader than just some random technical details. This also puts more weight to know this kind of acronym. You shouldn't make the same mistake twice.
 
-I'm very curious person. Almost always when I stumble into something that I don't know or understand, I dig deeper into that and try to learn it. In other contexts than tech the learning might take years, but tech or software related stuff are eventually quite easy and logical. I learn mainly by doing and thinking, so let's do and think in the form of blog post.
+I'm very curious person. Usually when I stumble into something that I don't know or understand, I dig deeper into that and try to learn it. In other contexts than tech, the learning might take years, but tech or software related stuff are eventually quite easy and logical, if you have a good and broad base knowledge. I learn mainly by doing and thinking, so let's do and think in the form of a blog post.
 
 ## AOP itself
 
@@ -94,7 +92,11 @@ But seriously, it is really hard to explain things to other people when the conc
 
 Back to the example...there is some transaction going on, which can be anything. This example must be also quite used in fintech, because there are money transactions and most like a thousand other transactions going all over the place. Not to forget that in Spring there can be SQL-related transactions and of course these can overlap more or less in fintech context.
 
-Oh yeah...I forgot to mention that AOP can keep the business logic clean, which should mean less bugs. One doesn't need to print timestamps to logs in the middle of some fancy state machine or similar full blown logical master piece. This might be actually one of the key motivations to create AOP, but I'm too lazy to check that from the docs.
+Oh yeah...I forgot to mention that AOP can keep the business logic clean, which should mean less bugs. One doesn't need to print timestamps to logs in the middle of some fancy state machine or similar full blown logical master piece. This might be actually one of the key motivations to create AOP, but I'm too lazy to check that from the docs, even though I like the idea of a clean code/function/method.
+
+## How does test related annotations work?
+
+At some point I thought, "Isn't this the same system than in tests like @Before/@BeforeEach/@After/@AfterEach and those annotations?" The answer is: Yes, these are similar, but annotations related to tests do not use AOP. They have their own ways of handling things that are not using AOP.
 
 ## OpenAPI
 
@@ -114,4 +116,9 @@ When I was writing this texts I figured out that here is a story to tell if I do
 
 There are other things one can do with AOP and my Github code for this project doesn't really cover much yet, but for this Friday this is enough.
 
-It is hard to know as an interviewer who can deliver and who cannot, who fits the team and who doesn't. I don't know how it goes, but I know - I can deliver and fit.
+It is hard to know as an interviewer who can deliver and who cannot, who fits the team and who doesn't. I don't know how it goes with this assignment, but I know - I can deliver and I can fit.
+
+## Post script story
+
+When I was proofreading this text I remembered one time in earlier company where a good friend of mine had a problem. He asked for help and he knew I might not be able to actually help, but everybody knows the rubberduck effect. I took a look over his shoulder and I was figuring out what he was doing. Then I asked "Does this system work like this: X is the goal. A connects to C through B and it is quite hard to catch all events because of Z." He silently looked at me over his shoulder and said stunningly "That is exatcly like it works."
+
