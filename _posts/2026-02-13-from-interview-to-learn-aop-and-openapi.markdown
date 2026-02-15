@@ -7,7 +7,7 @@ permalink: /:title
 
 ## Preface
 
-The idea behind this post is to demonstrate how I learn, who I am and how I operate. I have a lot of confidence on my own skills to learn, but it works sometimes in a bit weird way. There is quite a lot of humor in this post, at least I laugh at myself and many times to what I'm learning. The humor makes learning easier and more memorable. Also it is possible to see that I don't really like to read the docs and I get sometimes a bit frustrated to just trying to undestand plain text. I learn by doing. Rventually the acronyms and ideas behind the tech thing I'm learning about will click.
+The idea behind this post is to demonstrate how I learn, who I am and how I operate. I have a lot of confidence on my own skills to learn, but it works sometimes in a bit weird way. There is quite a lot of humor in this post, at least I laugh at myself and many times to what I'm learning. The humor makes learning easier and more memorable. Also it is possible to see that I don't really like to read the docs and I get sometimes a bit frustrated to just trying to undestand plain text. I learn by doing. Eventually the acronyms and ideas behind the tech thing I'm learning about will click.
 
 ## Why I wanted to learn AOP
 
