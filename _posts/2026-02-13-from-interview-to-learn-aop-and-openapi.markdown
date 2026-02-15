@@ -67,6 +67,7 @@ Couple of notes I want to write here for similar people to me:
 * To get that UUID across services it must be attached to system and whatever call go between the services
 * Correlation ID is usually transferred from place A to place B via HTTP headers with something like X-Correlation-ID
 * If some sort of queue mechanism is used, then the correlation ID must be in the meta data
+* There is a new post from me about [correlation id with Kotlin and Spring]({% post_url 2026-02-15-toying-with-correlation-id %})
 
 And now I have the basics for the logging thingamagick ready and it is just building from this moment on. It depends on the system how to calculate the times and there is no point to go there in this context. I'll just say that the timings can be written from the code itself or they can be calculated with external tools that scoop up the logs and visualise stuff on Grafana or whatever. When the values are there, it is easy to create sort of alarm mechanism to watch how the system operates.
 
